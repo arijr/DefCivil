@@ -15,10 +15,10 @@ class CreateOcorrenciasTable extends Migration
     {
         Schema::create('ocorrencias', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('numero');
+            // $table->string('numero');
             $table->dateTime('data')->nullable();
             $table->string('motivo');
-            $table->string('descricao');
+            $table->text('descricao');
             $table->string('tipo');
             $table->timestamps();
         });

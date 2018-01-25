@@ -20,8 +20,10 @@ class CreateSolicitantesTable extends Migration
             $table->string('cpf');
             $table->string('nis');
             $table->string('identidade');
-            $table->integer('ocorrencia_id');
+            $table->integer('ocorrencia_id')->unsigned();
+            $table->foreign('ocorrencia_id')->references('id')->on('ocorrencias')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

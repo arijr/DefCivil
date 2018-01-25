@@ -61,7 +61,7 @@
               </div>
               <div class="form-group col-lg-1">
                 <label>Número</label>
-                <input class="form-control" placeholder="123" name="numero">
+                <input class="form-control" placeholder="123" name="numero_casa">
               </div>
               <div class="form-group col-lg-2">
                 <label>CEP</label>
@@ -105,7 +105,7 @@
               </div>
               <div class="form-group col-lg-1">
                 <label>Número</label>
-                <input class="form-control" placeholder="123" name="numero">
+                <input class="form-control" placeholder="123" name="numero_casa">
               </div>
               <div class="form-group col-lg-2">
                 <label>CEP</label>

@@ -52,13 +52,13 @@ class OcorrenciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
         $ocorrencia = Ocorrencia::create($request->all());
 
         $endereco = new Endereco();
         $endereco->rua = $request->rua;
         $endereco->cep = $request->cep;
-        $endereco->numero = $request->numero;
+        $endereco->numero = $request->numero_casa;
         $endereco->bairro = $request->bairro;
         $endereco->cidade = $request->cidade;
         $endereco->estado = $request->estado;
@@ -73,7 +73,6 @@ class OcorrenciaController extends Controller
         $solicitante->nis = $request->nis;
         $solicitante->ocorrencia_id = $ocorrencia->id;
         $this->solicitante_controller->store($solicitante);
-        // dd( $ocorrencia,$endereco,$solicitante);
 
         return view( 'ocorrencias.index');
     }
@@ -127,9 +126,12 @@ class OcorrenciaController extends Controller
     {
       $ocorrencias = new Ocorrencia();
       return DataTables::of($ocorrencias->dadosDatatable())
-        ->editColumn('created_at', function($user){
-            return $user->created_at->format('d/m/Y');
+        ->editColumn('created_at', function($data){
+            return $data->created_at->format('d/m/Y');
         })
+        // ->editColumn('id', function($numero){
+        //   return $numero->id->format('');
+        // })
         ->filterColumn('created_at', function ($query, $keyword) {
             $query->whereRaw("DATE_FORMAT(created_at, '%d/%m/%Y') like ?", ["%keyword%"]);
         })

@@ -21,7 +21,8 @@ class CreateEnderecosTable extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');
-            $table->string('ocorrencia_id');
+            $table->integer('ocorrencia_id')->unsigned();
+            $table->foreign('ocorrencia_id')->references('id')->on('ocorrencias')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

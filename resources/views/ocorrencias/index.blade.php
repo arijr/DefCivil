@@ -58,7 +58,7 @@
       serverSide: true,
       ajax: '{{route('ocorrencia.data')}}',
       columns: [
-        {data:'numero',name: 'numero'},
+        {data:'id',name: 'id'},
         {data:'created_at', name: 'created_at'},
         {data:'motivo', name: 'motivo'},
         {data:'tipo', name: 'tipo'},
